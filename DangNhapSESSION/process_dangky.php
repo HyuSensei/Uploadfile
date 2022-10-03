@@ -1,6 +1,5 @@
 <?php
-session_start();
-$name=$email=$password=$id="";
+$name=$email=$password="";
 if(isset($_POST['name']))
 {
     $name=$_POST['name'];
@@ -28,7 +27,8 @@ mysqli_query($connect,$sql);
 header('location:Dangnhap.php');
 $sql="select id from user where email='$email'";
 $result=mysqli_query($connect,$sql);
-$each=mysqli_fetch_array($result)['id'];
+$id=mysqli_fetch_array($result)['id'];
+session_start();
 $_SESSION['id']=$id;
 $_SESSION['name']=$name;
 mysqli_close($connect);

@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(empty($_SESSION['id']))
+{
+    header('location:dangnhap.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +14,7 @@ session_start();
     <title>User</title>
 </head>
 <body>
-    <h1>Đây là trang người dùng. Xin chao bạn</h1>
+    <h1>Đây là trang người dùng. Xin chào bạn</h1>
     <a href="Dangxuat.php">Đăng xuất</a>
     <?php
     echo $_SESSION['name'];
